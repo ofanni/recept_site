@@ -1,0 +1,10 @@
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/ReceptGyujtemenyApplication.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/controller/ReceptController.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/entity/FelhasznaloEntity.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/entity/JogosultsagEntity.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/entity/KommentEntity.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/entity/ReceptEntity.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/repository/FelhasznaloRepository.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/repository/JogosultsagRepository.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/repository/KommentRepository.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/repository/ReceptRepository.java

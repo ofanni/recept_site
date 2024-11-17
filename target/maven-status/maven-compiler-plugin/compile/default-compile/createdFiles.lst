@@ -1,0 +1,17 @@
+hu/unideb/inf/recept_gyujtemeny/data/repository/FelhasznaloRepository.class
+hu/unideb/inf/recept_gyujtemeny/data/entity/FelhasznaloEntity.class
+hu/unideb/inf/recept_gyujtemeny/service/mapper/ReceptEntityMapper.class
+hu/unideb/inf/recept_gyujtemeny/data/repository/ReceptRepository.class
+hu/unideb/inf/recept_gyujtemeny/data/repository/JogosultsagRepository.class
+hu/unideb/inf/recept_gyujtemeny/service/mapper/ReceptEntityMapperImpl.class
+hu/unideb/inf/recept_gyujtemeny/service/mapper/ReceptMapperImpl.class
+hu/unideb/inf/recept_gyujtemeny/service/impl/ReceptManagementServiceImpl.class
+hu/unideb/inf/recept_gyujtemeny/data/entity/KommentEntity.class
+hu/unideb/inf/recept_gyujtemeny/controller/ReceptController.class
+hu/unideb/inf/recept_gyujtemeny/service/ReceptManagementService.class
+hu/unideb/inf/recept_gyujtemeny/data/entity/ReceptEntity.class
+hu/unideb/inf/recept_gyujtemeny/ReceptGyujtemenyApplication.class
+hu/unideb/inf/recept_gyujtemeny/data/repository/KommentRepository.class
+hu/unideb/inf/recept_gyujtemeny/service/mapper/ReceptMapper.class
+hu/unideb/inf/recept_gyujtemeny/service/dto/ReceptDto.class
+hu/unideb/inf/recept_gyujtemeny/data/entity/JogosultsagEntity.class
