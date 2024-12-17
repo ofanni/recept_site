@@ -23,6 +23,7 @@
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/config/JwtAuthFilter.java
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/entity/ReceptEntity.java
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/ReceptGyujtemenyApplication.java
+/Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/config/MvcConfig.java
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/data/repository/JogosultsagRepository.java
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/service/dto/KommentDto.java
 /Users/fanni/Documents/WebFej/webfejlproject/recept_gyujtemeny/src/main/java/hu/unideb/inf/recept_gyujtemeny/service/impl/ReceptManagementServiceImpl.java
