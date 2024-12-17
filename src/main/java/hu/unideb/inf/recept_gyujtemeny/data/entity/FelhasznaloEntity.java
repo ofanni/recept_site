@@ -1,13 +1,16 @@
 package hu.unideb.inf.recept_gyujtemeny.data.entity;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="felhazsnalo")
-public class FelhasznaloEntity {
+@Table(name="felhasznalo")
+public class FelhasznaloEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +21,7 @@ public class FelhasznaloEntity {
     private String felhNev;
     @Column(name="jelszo")
     private String jelszo;
-    @Column(name = "profile_pic")
-    private String profilePic;
+
 
     @OneToMany(mappedBy = "felhasznalo")
     private List<ReceptEntity> receptek;
@@ -27,7 +29,7 @@ public class FelhasznaloEntity {
     @OneToMany(mappedBy = "felhasznalo")
     private List<KommentEntity> komment;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "felhasznalo_jogosultsagok",
             joinColumns = {@JoinColumn(name = "felhasznalo_id")},
             inverseJoinColumns = {@JoinColumn(name = "jogosultsag_id")}
@@ -38,12 +40,11 @@ public class FelhasznaloEntity {
 
     }
 
-    public FelhasznaloEntity(long id, String teljNev, String felhNev, String jelszo, String profilePic) {
+    public FelhasznaloEntity(long id, String teljNev, String felhNev, String jelszo) {
         this.id = id;
         this.teljNev = teljNev;
         this.felhNev = felhNev;
         this.jelszo = jelszo;
-        this.profilePic = profilePic;
     }
 
     public long getId() {
@@ -78,13 +79,7 @@ public class FelhasznaloEntity {
         this.jelszo = jelszo;
     }
 
-    public String getProfilePic() {
-        return profilePic;
-    }
 
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
-    }
 
     public List<ReceptEntity> getReceptek() {
         return receptek;
@@ -115,11 +110,26 @@ public class FelhasznaloEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FelhasznaloEntity that = (FelhasznaloEntity) o;
-        return id == that.id && Objects.equals(teljNev, that.teljNev) && Objects.equals(felhNev, that.felhNev) && Objects.equals(jelszo, that.jelszo) && Objects.equals(profilePic, that.profilePic);
+        return id == that.id && Objects.equals(teljNev, that.teljNev) && Objects.equals(felhNev, that.felhNev) && Objects.equals(jelszo, that.jelszo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, teljNev, felhNev, jelszo, profilePic);
+        return Objects.hash(id, teljNev, felhNev, jelszo);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return jogosultsagok;
+    }
+
+    @Override
+    public String getPassword() {
+        return jelszo;
+    }
+
+    @Override
+    public String getUsername() {
+        return felhNev;
     }
 }

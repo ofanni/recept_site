@@ -11,7 +11,7 @@ public class ReceptDto {
     private String hozzavalok;
     private String leiras;
     private Date feltoltesDatum;
-    private Long felhasznaloId;
+
 
     public ReceptDto() {
     }
@@ -23,7 +23,6 @@ public class ReceptDto {
         this.hozzavalok = hozzavalok;
         this.leiras = leiras;
         this.feltoltesDatum = feltoltesDatum;
-        this.felhasznaloId = felhasznaloId;
     }
 
     public Long getId() {
@@ -74,13 +73,6 @@ public class ReceptDto {
         this.feltoltesDatum = feltoltesDatum;
     }
 
-    public Long getFelhasznaloId() {
-        return felhasznaloId;
-    }
-
-    public void setFelhasznaloId(Long felhasznaloId) {
-        this.felhasznaloId = felhasznaloId;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -92,12 +84,11 @@ public class ReceptDto {
                 Objects.equals(adag, receptDto.adag) &&
                 Objects.equals(hozzavalok, receptDto.hozzavalok) &&
                 Objects.equals(leiras, receptDto.leiras) &&
-                Objects.equals(feltoltesDatum, receptDto.feltoltesDatum) &&
-                Objects.equals(felhasznaloId, receptDto.felhasznaloId);
+                Objects.equals(feltoltesDatum, receptDto.feltoltesDatum);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cim, adag, hozzavalok, leiras, feltoltesDatum, felhasznaloId);
+        return Objects.hash(id, cim, adag, hozzavalok, leiras, feltoltesDatum);
     }
 }

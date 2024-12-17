@@ -5,6 +5,7 @@ import hu.unideb.inf.recept_gyujtemeny.service.dto.ReceptDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -14,15 +15,20 @@ import java.util.List;
 @RequestMapping("/api")
 public class ReceptController {
 
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public ResponseEntity<Void> handleOptions(){
+        return ResponseEntity.ok().build();
+    }
+
     @Autowired
     ReceptManagementService service;
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello World";
+        return "Hello from spring boot";
     }
 
-
+   // @PreAuthorize("hasRole('FELHASZNALO')")
     @PostMapping("/saverecept")
     public ReceptDto save(@RequestBody ReceptDto recept) {
         return service.save(recept);

@@ -11,6 +11,7 @@ public class KommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @Column(name = "tartalom")
     private String tartalom;
     @Column(name = "letr_datum")

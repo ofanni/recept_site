@@ -31,13 +31,15 @@ public class ReceptEntity {
 
     }
 
-    public ReceptEntity(long id, String cim, Integer adag, String hozzavalok, String leiras, Date feltoltesDatum) {
+    public ReceptEntity(long id, String cim, Integer adag, String hozzavalok, String leiras, Date feltoltesDatum,FelhasznaloEntity felhasznalo) {
         this.id = id;
         this.cim = cim;
         this.adag = adag;
         this.hozzavalok = hozzavalok;
         this.leiras = leiras;
         this.feltoltesDatum = feltoltesDatum;
+        this.felhasznalo = felhasznalo;  // Directly set the user (FelhasznaloEntity)
+
     }
 
     public long getId() {
