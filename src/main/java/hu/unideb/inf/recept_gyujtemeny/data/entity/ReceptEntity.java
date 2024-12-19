@@ -11,7 +11,7 @@ public class ReceptEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     @Column(name = "cim")
     private String cim;
     @Column(name = "adag")

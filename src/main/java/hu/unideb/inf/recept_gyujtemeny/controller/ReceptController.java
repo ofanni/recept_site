@@ -28,12 +28,13 @@ public class ReceptController {
         return "Hello from spring boot";
     }
 
-   // @PreAuthorize("hasRole('FELHASZNALO')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @PostMapping("/saverecept")
     public ReceptDto save(@RequestBody ReceptDto recept) {
         return service.save(recept);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/updaterecept")
     public ReceptDto update(@RequestBody ReceptDto recept) {
         if (recept.getId() > 0L) {
@@ -42,11 +43,12 @@ public class ReceptController {
         return null;
     }
 
-    @DeleteMapping("/recept")
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/drecept")
     public void delete(@RequestParam Long id) {
         service.delete(id);
     }
-
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping("/recept")
     public List<ReceptDto> findAll() {
         return service.findAll();
@@ -55,6 +57,15 @@ public class ReceptController {
     @GetMapping("/recept/{cim}")
     public List<ReceptDto> findAllByCim(@PathVariable String cim) {
         return service.findByCim(cim);
+    }
+    @GetMapping("/recept/{id}")
+    public ResponseEntity<ReceptDto> getRecipeById(@PathVariable Long id) {
+        ReceptDto recept = service.findById(id);
+        if (recept != null) {
+            return ResponseEntity.ok(recept);  // Ha megtaláltuk a receptet, akkor visszaadjuk
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);  // Ha nem található, 404-es hiba
+        }
     }
     @GetMapping("/filterrecept")
     public List<ReceptDto> filterRecept(

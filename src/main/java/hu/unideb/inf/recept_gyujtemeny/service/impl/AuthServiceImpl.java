@@ -41,18 +41,26 @@ public class AuthServiceImpl implements AuthService {
         FelhasznaloEntity entity = modelMapper.map(dto, FelhasznaloEntity.class);
         entity.setJelszo(passwordEncoder.encode(entity.getJelszo()));
 
-        JogosultsagEntity jog = jogRepo.findByNev("FELHASZNALO");
-        if(jog == null){
-            jog = new JogosultsagEntity();
-            jog.setNev("FELHASZNALO");
-            jog = jogRepo.save(jog);
-            entity.setJogosultsagok(List.of(jog));
+        JogosultsagEntity jog;
+        if ("admin".equals(dto.getFelhNev())) {
+            // Admin jogosultság kezelése
+            jog = jogRepo.findByNev("ROLE_ADMIN");
+            if (jog == null) {
+                jog = new JogosultsagEntity();
+                jog.setNev("ROLE_ADMIN");
+                jog = jogRepo.save(jog);
+            }
         } else {
-            entity.setJogosultsagok(List.of(jog));
+            // Alapértelmezett felhasználó jogosultság
+            jog = jogRepo.findByNev("ROLE_FELHASZNALO");
+            if (jog == null) {
+                jog = new JogosultsagEntity();
+                jog.setNev("ROLE_FELHASZNALO");
+                jog = jogRepo.save(jog);
+            }
         }
+        entity.setJogosultsagok(List.of(jog));
         felhasznaloRepository.save(entity);
-
-
     }
 
     @Override
@@ -63,7 +71,13 @@ public class AuthServiceImpl implements AuthService {
                         dto.getJelszo()
                 )
         );
+
         var user = felhasznaloRepository.findByFelhNev(dto.getFelhNev());
+        // Admin jogosultság ellenőrzése
+        if (user.getJogosultsagok().stream().anyMatch(jog -> "ADMIN".equals(jog.getNev()))) {
+            System.out.println("Admin felhasználó jelentkezett be!");
+            // További admin-specifikus műveletek itt
+        }
         return jwtService.generateToken(user);
 
 

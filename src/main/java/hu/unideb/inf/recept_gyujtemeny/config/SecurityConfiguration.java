@@ -47,6 +47,7 @@ public class SecurityConfiguration {
                 })).csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req.requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/h2/**").permitAll()
+                        .requestMatchers("/api/updaterecept","/api/drecept").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/saverecept").authenticated() // Ensure correct permissions
                         .requestMatchers("/api/**").authenticated()  // Secure all /api/ endpoints
                         .anyRequest().authenticated())
